@@ -1,0 +1,15 @@
+{
+    "name": "ecurring/domino-game",
+    "description": "Coding assessment for eCurring",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "authors": [
+        {
+            "name": "Daniel Lima",
+            "email": "yourwebmaker@gmail.com"
+        }
+    ],
+    "require": {}
+}
