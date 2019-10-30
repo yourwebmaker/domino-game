@@ -11,5 +11,15 @@
             "email": "yourwebmaker@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "eCurring\\DominoGame\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "eCurring\\DominoGame\\" : "tests/"
+        }
+    },
     "require": {}
 }
