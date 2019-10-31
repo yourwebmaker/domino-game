@@ -15,6 +15,5 @@ final class TileTest extends TestCase
         $anotherTile = new Tile(0, 1);
         $anotherTile->canConnectWith($anotherTile);
     }
-
-    //tiles can connect 
+    //tiles can connect
 }

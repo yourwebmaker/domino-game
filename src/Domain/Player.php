@@ -13,16 +13,19 @@ final class Player
 
     public function __construct(string $name, Stock $stock)
     {
-        $this->name = $name;
+        $this->name  = $name;
         $this->tiles = $stock->drawTiles();
     }
 
-    public function name(): string
+    public function name() : string
     {
         return $this->name;
     }
 
-    public function tiles(): array
+    /**
+     * @return Tile[]
+     */
+    public function tiles() : array
     {
         return $this->tiles;
     }

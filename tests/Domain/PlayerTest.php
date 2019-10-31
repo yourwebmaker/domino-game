@@ -15,7 +15,7 @@ class PlayerTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->stock = new Stock();
+        $this->stock  = new Stock();
         $this->player = new Player('Alice', $this->stock);
     }
 
@@ -35,4 +35,3 @@ class PlayerTest extends TestCase
         self::assertCount(21, $this->stock->tiles());
     }
 }
-

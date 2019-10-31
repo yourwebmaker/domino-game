@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace eCurring\DominoGame\Domain;
 
+use function array_pop;
+use function shuffle;
+
 final class Stock
 {
     /** @var Tile[] */
@@ -15,11 +18,17 @@ final class Stock
         $this->shuffleTiles();
     }
 
+    /**
+     * @return Tile[]
+     */
     public function tiles() : array
     {
         return $this->tiles;
     }
 
+    /**
+     * @return Tile[]
+     */
     public function drawTiles() : array
     {
         $drawnTiles = [];
@@ -32,7 +41,7 @@ final class Stock
 
     private function buildTiles() : void
     {
-        for($i = 0; $i <= 6; $i++) {
+        for ($i = 0; $i <= 6; $i++) {
             for ($j = 0; $j <= $i; $j++) {
                 $this->tiles[] = new Tile($i, $j);
             }

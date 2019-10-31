@@ -3,7 +3,8 @@
     "description": "Coding assessment for eCurring",
     "type": "project",
     "require-dev": {
-        "phpunit/phpunit": "^8.4"
+        "phpunit/phpunit": "^8.4",
+        "doctrine/coding-standard": "^6.0"
     },
     "authors": [
         {

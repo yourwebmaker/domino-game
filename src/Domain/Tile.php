@@ -13,7 +13,7 @@ final class Tile
 
     public function __construct(int $topEnd, int $bottomEnd)
     {
-        $this->topEnd = $topEnd;
+        $this->topEnd    = $topEnd;
         $this->bottomEnd = $bottomEnd;
     }
 
