@@ -8,12 +8,27 @@ use PHPUnit\Framework\TestCase;
 
 final class TileTest extends TestCase
 {
-    public function testCanConnect() : void
+    /**
+     * @test
+     */
+    public function canConnect() : void
     {
         $tile = new Tile(0, 1);
 
-        $anotherTile = new Tile(0, 1);
-        $anotherTile->canConnectWith($anotherTile);
+        $anotherTile = new Tile(0, 2);
+        $anotherTile->canConnectWith($tile);
     }
-    //tiles can connect
+
+    /**
+     * @test
+     */
+    public function cannotConnect() : void
+    {
+
+    }
+
+    public function connectDoubles() : void
+    {
+
+    }
 }

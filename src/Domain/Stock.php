@@ -29,10 +29,10 @@ final class Stock
     /**
      * @return Tile[]
      */
-    public function drawTiles() : array
+    public function drawTiles(int $amount) : array
     {
         $drawnTiles = [];
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < $amount; $i++) {
             $drawnTiles[] = array_pop($this->tiles);
         }
 

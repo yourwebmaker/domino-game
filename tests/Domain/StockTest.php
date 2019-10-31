@@ -31,8 +31,9 @@ final class StockTest extends TestCase
      */
     public function drawTilesReturn7Tiles() : void
     {
-        $drawnTiles = $this->stock->drawTiles();
-        self::assertCount(7, $drawnTiles);
+        $amount = 7;
+        $drawnTiles = $this->stock->drawTiles($amount);
+        self::assertCount($amount, $drawnTiles);
     }
 
     /**
@@ -40,7 +41,8 @@ final class StockTest extends TestCase
      */
     public function drawTilesReducesTheAmountOfTilesToMinus7Tiles() : void
     {
-        $this->stock->drawTiles();
+        $amount = 7;
+        $this->stock->drawTiles($amount);
 
         $remainingTiles = $this->stock->tiles();
         self::assertCount(21, $remainingTiles);

@@ -14,7 +14,7 @@ final class Player
     public function __construct(string $name, Stock $stock)
     {
         $this->name  = $name;
-        $this->tiles = $stock->drawTiles();
+        $this->tiles = $stock->drawTiles(7);
     }
 
     public function name() : string
