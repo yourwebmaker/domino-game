@@ -10,7 +10,7 @@ Coding assessment for eCurring
 <img src="docs/class-diagram.png"  alt="Class diagram"/>
 
 #### todo
-- update class diagram
-    - explain concepts used on solution
+- Update class diagram
+    - Explain concepts used on solution
     - Model, View Model, Events, Low Coupling
 - Update to use PHP 7.4
