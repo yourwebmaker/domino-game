@@ -13,3 +13,4 @@ Coding assessment for eCurring
 - Add PHPStan, PHPCS
 - HTML Output
 - CLI Output
+    - Test console output
