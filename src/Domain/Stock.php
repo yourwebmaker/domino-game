@@ -20,6 +20,16 @@ final class Stock
         return $this->tiles;
     }
 
+    public function drawTiles() : array
+    {
+        $drawnTiles = [];
+        for ($i = 0; $i < 7; $i++) {
+            $drawnTiles[] = array_pop($this->tiles);
+        }
+
+        return $drawnTiles;
+    }
+
     private function buildTiles() : void
     {
         for($i = 0; $i <= 6; $i++) {
