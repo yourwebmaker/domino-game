@@ -33,6 +33,17 @@ final class Player
         return false;
     }
 
+    public function playableTile(LineOfPlay $lineOfPlay) : ?Tile
+    {
+        foreach ($this->tiles as $tile) {
+            if ($tile->canConnectWith($lineOfPlay->topEnd()) || $tile->canConnectWith($lineOfPlay->bottomEnd())) {
+                return $tile;
+            }
+        }
+
+        return null;
+    }
+
     public function playTile(Tile $tile, LineOfPlay $lineOfPlay) : void
     {
         $lineOfPlay->connect($tile);

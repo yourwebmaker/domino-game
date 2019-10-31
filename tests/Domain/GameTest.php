@@ -10,14 +10,16 @@ final class GameTest extends TestCase
 {
     /** @var Game */
     private $game;
+    /** @var Player */
+    private $firstPlayer;
 
     protected function setUp() : void
     {
-        $stock = new FixedStock();
-        $alice = new Player('Alice', $stock);
-
-        $bob        = new Player('Bob', $stock);
-        $this->game = new Game(new PlayerList([$alice, $bob]), $stock);
+        $stock             = new RandomStock();
+        $alice             = new Player('Alice', $stock);
+        $bob               = new Player('Bob', $stock);
+        $this->game        = new Game(new PlayerList([$alice, $bob]), $stock);
+        $this->firstPlayer = $alice;
     }
 
     /**
@@ -25,11 +27,16 @@ final class GameTest extends TestCase
      */
     public function gameStartsWithARandomTile() : void
     {
-        self::assertEquals(2, $this->game->lineOfPlay()->count());
+        self::assertEquals(1, $this->game->lineOfPlay()->count());
     }
 
-    //The game ends when one player wins by playing their last tile.
-
+    /**
+     * @test
+     */
+    public function output() : void
+    {
+        self::assertInstanceOf(Player::class, $this->game->start($this->firstPlayer));
+    }
     /**
      * Game starting with first tile: <4:1>
     Alice plays <0:4> to connect to tile <4:1> on the board

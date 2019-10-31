@@ -15,19 +15,11 @@ final class FixedStock implements Stock
 
     public function __construct()
     {
-        $this->tiles = [
-            Tile::fromString('0:1'),
-            Tile::fromString('1:4'),
-            Tile::fromString('5:4'),
-            Tile::fromString('4:2'),
-            Tile::fromString('0:1'),
-            Tile::fromString('1:5'),
-            Tile::fromString('5:3'),
-            Tile::fromString('6:6'),
-            Tile::fromString('4:3'),
-            Tile::fromString('4:1'),
-            Tile::fromString('4:6'),
-        ];
+        for ($i = 0; $i <= 6; $i++) {
+            for ($j = 0; $j <= $i; $j++) {
+                $this->tiles[] = new Tile($i, $j);
+            }
+        }
     }
 
     /**
