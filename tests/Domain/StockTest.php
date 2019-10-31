@@ -19,9 +19,4 @@ final class StockTest extends TestCase
         self::assertCount(28, $tiles);
         self::assertContainsOnlyInstancesOf(Tile::class, $tiles);
     }
-
-    public function shouldCreateUniqueTiles() : void
-    {
-
-    }
 }
