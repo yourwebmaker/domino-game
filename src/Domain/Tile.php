@@ -19,7 +19,7 @@ final class Tile
 
     public function canConnectWith(Tile $anotherTile) : bool
     {
-        return true;
+        return $this->topEnd === $anotherTile->topEnd || $this->topEnd === $anotherTile->bottomEnd;
     }
 
     public function topEnd() : int
@@ -30,5 +30,12 @@ final class Tile
     public function bottomEnd() : int
     {
         return $this->bottomEnd;
+    }
+
+    public function flip() : void
+    {
+        $tmpTop = $this->topEnd;
+        $this->topEnd = $this->bottomEnd;
+        $this->bottomEnd = $tmpTop;
     }
 }
