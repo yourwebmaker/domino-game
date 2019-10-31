@@ -14,3 +14,4 @@ Coding assessment for eCurring
 - HTML Output
 - CLI Output
     - Test console output
+- Update to use PHP 7.4
