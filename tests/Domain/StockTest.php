@@ -8,12 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 final class StockTest extends TestCase
 {
-    /** @var Stock */
+    /** @var RandomStock */
     private $stock;
 
     protected function setUp() : void
     {
-        $this->stock = new Stock();
+        $this->stock = new RandomStock();
     }
 
     /**
