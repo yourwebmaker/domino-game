@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace eCurring\DominoGame\Domain;
 
+use function explode;
+use function sprintf;
+
 final class Tile
 {
     /** @var int */
@@ -17,9 +20,18 @@ final class Tile
         $this->bottomEnd = $bottomEnd;
     }
 
+    public static function fromString(string $string) : self
+    {
+        $ends = explode(':', $string);
+
+        return new self((int) $ends[0], (int) $ends[1]);
+    }
+
     public function canConnectWith(Tile $anotherTile) : bool
     {
-        return $this->topEnd === $anotherTile->topEnd || $this->topEnd === $anotherTile->bottomEnd;
+        return ($this->topEnd === $anotherTile->topEnd || $this->topEnd === $anotherTile->bottomEnd)
+            ||
+            ($this->bottomEnd === $anotherTile->topEnd || $this->bottomEnd === $anotherTile->bottomEnd);
     }
 
     public function topEnd() : int
@@ -37,5 +49,10 @@ final class Tile
         $tmpTop          = $this->topEnd;
         $this->topEnd    = $this->bottomEnd;
         $this->bottomEnd = $tmpTop;
+    }
+
+    public function __toString() : string
+    {
+        return sprintf('<%d:%d>', $this->topEnd, $this->bottomEnd);
     }
 }

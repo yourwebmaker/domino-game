@@ -53,6 +53,7 @@ final class TileTest extends TestCase
     {
         return [
             //created by me
+            [[4, 1], [0, 4]],
             [[0, 0], [0, 1]],
             [[0, 1], [0, 2]],
             [[0, 1], [1, 2]],
