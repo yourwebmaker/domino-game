@@ -34,6 +34,9 @@ final class LineOfPlay
         }
 
         if ($tile->canConnectWith($this->bottomEnd())) {
+            if ($tile->topEnd() !== $this->bottomEnd()->bottomEnd()) {
+                $tile->flip();
+            }
             $this->tiles[] = $tile;
 
             return;
