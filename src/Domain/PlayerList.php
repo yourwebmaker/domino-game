@@ -12,10 +12,14 @@ use function count;
  */
 final class PlayerList
 {
+    /** @var Player[]  */
     private $array;
-    private $curIndex   = 0;
+    /** @var int  */
+    private $curIndex = 0;
+    /** @var int */
     private $totalItems;
-    private $indexes    = [];
+    /** @var array<int> */
+    private $indexes = [];
 
     /**
      * Creates a circular array.
@@ -57,8 +61,7 @@ final class PlayerList
     }
 
     /**
-     * Maps the keys of the array and returns an array containing the values found.
-     * $return array;
+     * @return array<int>
      */
     private function mapKeys() : array
     {

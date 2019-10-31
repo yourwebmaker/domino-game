@@ -15,7 +15,7 @@ class PlayerTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->stock  = new Stock();
+        $this->stock  = new FixedStock();
         $this->player = new Player('Alice', $this->stock);
     }
 

@@ -22,11 +22,40 @@ final class Player
         return $this->name;
     }
 
+    public function isAbleToPlay(LineOfPlay $lineOfPlay) : bool
+    {
+        foreach ($this->tiles as $tile) {
+            if ($tile->canConnectWith($lineOfPlay->topEnd()) || $tile->canConnectWith($lineOfPlay->bottomEnd())) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function playTile(Tile $tile, LineOfPlay $lineOfPlay) : void
+    {
+        $lineOfPlay->connect($tile);
+    }
+
     /**
      * @return Tile[]
      */
     public function tiles() : array
     {
         return $this->tiles;
+    }
+
+    public function pullFromStock(Stock $stock) : Tile
+    {
+        $tile          = $stock->pullTile();
+        $this->tiles[] = $tile;
+
+        return $tile;
+    }
+
+    public function __toString() : string
+    {
+        return $this->name;
     }
 }

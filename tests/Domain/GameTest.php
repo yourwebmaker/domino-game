@@ -13,25 +13,20 @@ final class GameTest extends TestCase
 
     protected function setUp() : void
     {
-        $stock = new Stock();
+        $stock = new FixedStock();
         $alice = new Player('Alice', $stock);
-        $bob   = new Player('Bob', $stock);
 
-        $board      = new LineOfPlay();
-        $this->game = new Game([$alice, $bob], $stock, $board);
+        $bob        = new Player('Bob', $stock);
+        $this->game = new Game(new PlayerList([$alice, $bob]), $stock);
     }
 
-    public function testGameStartsWithARandomTile() : void
+    /**
+     * @test
+     */
+    public function gameStartsWithARandomTile() : void
     {
-        self::assertEquals(1, $this->game->lineOfPlay()->count());
+        self::assertEquals(2, $this->game->lineOfPlay()->count());
     }
-    //The players alternately extend the line of play with one tile at one of its two ends;
-
-    //A tile may only be placed next to another tile, if their respective values on the
-    //connecting ends are identical.
-
-    //If a player is unable to place a valid tile, they must keep on pulling tiles from the stock
-    //until they can.
 
     //The game ends when one player wins by playing their last tile.
 

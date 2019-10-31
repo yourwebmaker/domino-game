@@ -68,4 +68,15 @@ final class LineOfPlay
     {
         return implode(' ', $this->tiles);
     }
+
+    public function getEndToConnect(Tile $tile) : Tile
+    {
+        if ($tile->canConnectWith($this->topEnd())) {
+            return $this->topEnd();
+        }
+
+        if ($tile->canConnectWith($this->bottomEnd())) {
+            return $this->bottomEnd();
+        }
+    }
 }
