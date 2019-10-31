@@ -18,6 +18,6 @@ class LineOfPlayTest extends TestCase
         $lineOfPlay->connect(Tile::fromString('0:5'));
         $lineOfPlay->connect(Tile::fromString('1:1'));
 
-        self::assertEquals('<0:5> <0:4> <4:1> <1:1>', (string) $lineOfPlay);
+        self::assertEquals('<5:0> <0:4> <4:1> <1:1>', (string) $lineOfPlay);
     }
 }

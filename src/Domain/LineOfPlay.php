@@ -24,6 +24,10 @@ final class LineOfPlay
     public function connect(Tile $tile) : void
     {
         if ($tile->canConnectWith($this->topEnd())) {
+            if ($tile->bottomEnd() !== $this->topEnd()->topEnd()) {
+                $tile->flip();
+            }
+
             array_unshift($this->tiles, $tile);
 
             return;
