@@ -1,6 +1,10 @@
 # domino-game
 Coding assessment for eCurring
 
+#### Install and Run
+- `composer install` to install
+- `vendor/bin/phpunit tests` to run the tests and see the result on CLI
+
 ### Class diagram
 
 <img src="docs/class-diagram.png"  alt="Class diagram"/>
@@ -9,9 +13,4 @@ Coding assessment for eCurring
 - update class diagram
     - explain concepts used on solution
     - Model, View Model, Events, Low Coupling
-- install instructions
-- Add PHPStan, PHPCS
-- HTML Output
-- CLI Output
-    - Test console output
 - Update to use PHP 7.4
