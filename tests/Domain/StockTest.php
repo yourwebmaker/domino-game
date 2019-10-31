@@ -31,7 +31,7 @@ final class StockTest extends TestCase
      */
     public function drawTilesReturn7Tiles() : void
     {
-        $amount = 7;
+        $amount     = 7;
         $drawnTiles = $this->stock->drawTiles($amount);
         self::assertCount($amount, $drawnTiles);
     }
