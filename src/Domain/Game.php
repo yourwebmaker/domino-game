@@ -37,7 +37,7 @@ final class Game
 
         while (! $player->isAbleToPlay($this->lineOfPlay)) {
             $playableTile = $player->pullFromStock($this->stock);
-            echo sprintf($player . " Cannot play, Pulling%s\n", $playableTile);
+            echo sprintf($player . " Cannot play, pulling %s\n", $playableTile);
         }
 
         if ($playableTile) {
@@ -50,6 +50,7 @@ final class Game
         echo 'Board is now ' . $this->lineOfPlay . "\n";
 
         if (count($player->tiles()) === 0) {
+            echo "Player {$player} has won!";
             return $player;
         }
 
