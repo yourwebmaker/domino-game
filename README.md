@@ -7,15 +7,20 @@ Coding assessment for eCurring
 
 ### Class diagram
 
-<img src="docs/class-diagram.png"  alt="Class diagram"/>
+##### Initial Idea
+
+<img src="docs/initial-class-diagram.png"  alt="Class diagram"/>
+
+##### Final Result
+
+<img src="docs/final-class-diagram.png"  alt="Class diagram"/>
 
 #### Todo
 - Create tests with just a few tiles on Stock
 - What to do in case they run out of tiles on stock?
 - Replace counts, etc... by collection
 - Remove duplication on Stock classes
-- Update class diagram With PHPStorm
-    - Explain concepts used on solution
-    - Model, View Model, Events, Low Coupling
+- Explain concepts used on solution: Model, View Model, Events, Low Coupling
 - Update to use PHP 7.4
 - Drop Tile::canConnectWith and add tests on canConnectToEnd
+- Drop unused methods (PlayerList)
