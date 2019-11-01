@@ -26,5 +26,3 @@ on the `main.php` file.
 - Replace counts, etc... by collections
 - Remove duplication on Stock classes
 - Update to use PHP 7.4
-- Drop Tile::canConnectWith and add tests on canConnectToEnd
-- Drop unused methods (PlayerList)
