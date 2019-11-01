@@ -16,6 +16,7 @@ on the `main.php` file.
 ### Class diagram
 ##### Initial Idea
 <img src="docs/initial-class-diagram.png"  alt="Class diagram"/>
+
 ##### Final Result
 <img src="docs/final-class-diagram.png"  alt="Class diagram"/>
 
