@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace eCurring\DominoGame\Domain;
 
+use eCurring\DominoGame\Domain\Events\BoardHasChanged;
+use eCurring\DominoGame\Domain\Events\GameStarted;
+use eCurring\DominoGame\Domain\Events\PlayerPlayedTile;
+use eCurring\DominoGame\Domain\Events\PlayerWasNotAbleToPlay;
+use eCurring\DominoGame\Domain\Events\PlayerWon;
 use function count;
-use function sprintf;
 
 final class Game
 {
@@ -15,6 +19,8 @@ final class Game
     private $playerList;
     /** @var Stock */
     private $stock;
+    /** @var array<DomainEvent> */
+    private $events;
 
     public function __construct(PlayerList $playerList, Stock $stock)
     {
@@ -22,8 +28,7 @@ final class Game
         $this->lineOfPlay = new LineOfPlay($firstTile);
         $this->stock      = $stock;
         $this->playerList = $playerList;
-
-        echo sprintf("Game starting with first tile: %s\n", $firstTile);
+        $this->record(new GameStarted($firstTile));
     }
 
     public function lineOfPlay() : LineOfPlay
@@ -37,23 +42,37 @@ final class Game
 
         while (! $player->isAbleToPlay($this->lineOfPlay)) {
             $playableTile = $player->pullFromStock($this->stock);
-            echo sprintf($player . " Cannot play, pulling %s\n", $playableTile);
+            $this->record(new PlayerWasNotAbleToPlay($player, $playableTile));
         }
 
         if ($playableTile) {
             $endToConnect = $this->lineOfPlay->getEndToConnect($playableTile);
             $player->playTile($playableTile, $this->lineOfPlay);
 
-            echo sprintf("%s plays %s to connect to tile %s on the board\n", $player, $playableTile, $endToConnect);
+            $this->record(new PlayerPlayedTile($player, $playableTile, $endToConnect));
         }
 
-        echo 'Board is now ' . $this->lineOfPlay . "\n";
+        $this->record(new BoardHasChanged(clone $this->lineOfPlay));
 
         if (count($player->tiles()) === 0) {
-            echo "Player {$player} has won!";
+            $this->record(new PlayerWon($player));
+
             return $player;
         }
 
         return $this->start($this->playerList->next());
+    }
+
+    private function record(DomainEvent $event) : void
+    {
+        $this->events[] = $event;
+    }
+
+    /**
+     * @return array<DomainEvent>
+     */
+    public function events() : array
+    {
+        return $this->events;
     }
 }

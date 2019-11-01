@@ -7,16 +7,19 @@ namespace eCurring\DominoGame\Domain;
 use RuntimeException;
 use function array_shift;
 use function count;
+use function implode;
 
 final class FixedStock implements Stock
 {
     /** @var Tile[] */
     private $tiles;
 
+    /** @param array<Tile> $tiles */
     public function __construct(array $tiles = [])
     {
         if ($tiles) {
             $this->tiles = $tiles;
+
             return;
         }
 

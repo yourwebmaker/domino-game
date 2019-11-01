@@ -9,10 +9,10 @@ Coding assessment for eCurring
 
 <img src="docs/class-diagram.png"  alt="Class diagram"/>
 
-#### todo
+#### Todo
 - Create tests with just a few tiles on Stock
-- Replace echoes with Domain events
-- Create App layer
+- What to do in case they run out of tiles on stock?
+- Replace counts, etc... by collection
 - Remove duplication on Stock classes
 - Update class diagram With PHPStorm
     - Explain concepts used on solution

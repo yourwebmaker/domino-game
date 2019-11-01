@@ -49,9 +49,11 @@ final class Player
         $lineOfPlay->connect($tileToPlay);
 
         foreach ($this->tiles as $i => $tile) {
-            if ($tileToPlay->equals($tile)) {
-                unset($this->tiles[$i]);
+            if (! $tileToPlay->equals($tile)) {
+                continue;
             }
+
+            unset($this->tiles[$i]);
         }
     }
 

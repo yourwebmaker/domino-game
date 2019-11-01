@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace eCurring\DominoGame\Domain;
 
 use PHPUnit\Framework\TestCase;
+use function count;
 
 class PlayerTest extends TestCase
 {
@@ -45,6 +46,4 @@ class PlayerTest extends TestCase
 
         self::assertLessThan($currentCount, count($this->player->tiles()));
     }
-
-
 }
