@@ -29,12 +29,4 @@ final class GameTest extends TestCase
     {
         self::assertEquals(1, $this->game->lineOfPlay()->count());
     }
-
-    /**
-     * @test
-     */
-    public function output() : void
-    {
-        $this->game->start($this->firstPlayer);
-    }
 }

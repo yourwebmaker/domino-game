@@ -3,7 +3,8 @@ Coding assessment for eCurring
 
 #### Install and Run
 - `composer install` to install
-- `vendor/bin/phpunit tests` to run the tests and see the result on CLI
+- `php src/UserInterface/CLI/main.php` to execute the program
+- `vendor/bin/phpunit tests` to run the tests
 
 ### Class diagram
 
