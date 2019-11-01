@@ -11,7 +11,7 @@ class LineOfPlayTest extends TestCase
     /**
      * @test
      */
-    public function connect() : void
+    public function connectFromExerciseDescription() : void
     {
         $lineOfPlay = new LineOfPlay(Tile::fromString('4:1'));
         $lineOfPlay->connect(Tile::fromString('0:4'));
@@ -47,6 +47,9 @@ class LineOfPlayTest extends TestCase
         self::assertEquals('<3:6> <6:2>', (string) $lineOfPlay);
     }
 
+    /**
+     * @test
+     */
     public function shouldPlaceTileAtEnd() : void
     {
         $lineOfPlay = new LineOfPlay(Tile::fromString('4:4'));

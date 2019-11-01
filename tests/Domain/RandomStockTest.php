@@ -6,7 +6,7 @@ namespace eCurring\DominoGame\Domain;
 
 use PHPUnit\Framework\TestCase;
 
-final class StockTest extends TestCase
+final class RandomStockTest extends TestCase
 {
     /** @var RandomStock */
     private $stock;

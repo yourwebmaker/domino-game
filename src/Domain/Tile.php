@@ -27,13 +27,6 @@ final class Tile
         return new self((int) $ends[0], (int) $ends[1]);
     }
 
-    public function canConnectWith(Tile $anotherTile) : bool
-    {
-        return ($this->topEnd === $anotherTile->topEnd || $this->topEnd === $anotherTile->bottomEnd)
-            ||
-            ($this->bottomEnd === $anotherTile->topEnd || $this->bottomEnd === $anotherTile->bottomEnd);
-    }
-
     public function canConnectToEnd(int $end) : bool
     {
         return $this->topEnd === $end || $this->bottomEnd === $end;
