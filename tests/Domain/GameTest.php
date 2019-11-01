@@ -10,16 +10,13 @@ final class GameTest extends TestCase
 {
     /** @var Game */
     private $game;
-    /** @var Player */
-    private $firstPlayer;
 
     protected function setUp() : void
     {
-        $stock             = new RandomStock();
-        $alice             = new Player('Alice', $stock);
-        $bob               = new Player('Bob', $stock);
-        $this->game        = new Game(new PlayerList([$alice, $bob]), $stock);
-        $this->firstPlayer = $alice;
+        $stock      = new RandomStock();
+        $alice      = new Player('Alice', $stock);
+        $bob        = new Player('Bob', $stock);
+        $this->game = new Game(new PlayerList([$alice, $bob]), $stock);
     }
 
     /**

@@ -46,20 +46,6 @@ final class PlayerList
         return $this->getCurrentValue();
     }
 
-    public function previous() : Player
-    {
-        $this->curIndex = $this->previousIndex();
-
-        return $this->getCurrentValue();
-    }
-
-    public function reset() : Player
-    {
-        $this->curIndex = 0;
-
-        return $this->getCurrentValue();
-    }
-
     /**
      * @return array<int>
      */
@@ -80,17 +66,5 @@ final class PlayerList
         }
 
         return $this->curIndex + 1;
-    }
-
-    /**
-     * Returns the previous position of the circular array;
-     */
-    private function previousIndex() : int
-    {
-        if ($this->curIndex <= 0) {
-            return $this->totalItems - 1;
-        }
-
-        return $this->curIndex - 1;
     }
 }

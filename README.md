@@ -22,7 +22,7 @@ on the `main.php` file.
 #### Todo
 - Create tests with just a few tiles on Stock
 - What to do in case they run out of tiles on stock?
-- Replace counts, etc... by collection
+- Replace counts, etc... by collections
 - Remove duplication on Stock classes
 - Update to use PHP 7.4
 - Drop Tile::canConnectWith and add tests on canConnectToEnd
