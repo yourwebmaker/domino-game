@@ -34,6 +34,11 @@ final class Tile
             ($this->bottomEnd === $anotherTile->topEnd || $this->bottomEnd === $anotherTile->bottomEnd);
     }
 
+    public function canConnectToEnd(int $end) : bool
+    {
+        return $this->topEnd === $end || $this->bottomEnd === $end;
+    }
+
     public function topEnd() : int
     {
         return $this->topEnd;
@@ -54,5 +59,12 @@ final class Tile
     public function __toString() : string
     {
         return sprintf('<%d:%d>', $this->topEnd, $this->bottomEnd);
+    }
+
+    public function equals(Tile $tile) : bool
+    {
+        return ($this->topEnd === $tile->topEnd && $this->bottomEnd === $tile->bottomEnd)
+            ||
+        ($this->topEnd === $tile->bottomEnd && $this->bottomEnd === $tile->topEnd);
     }
 }

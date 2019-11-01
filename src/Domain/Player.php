@@ -25,7 +25,7 @@ final class Player
     public function isAbleToPlay(LineOfPlay $lineOfPlay) : bool
     {
         foreach ($this->tiles as $tile) {
-            if ($tile->canConnectWith($lineOfPlay->topEnd()) || $tile->canConnectWith($lineOfPlay->bottomEnd())) {
+            if ($tile->canConnectToEnd($lineOfPlay->topEnd()) || $tile->canConnectToEnd($lineOfPlay->bottomEnd())) {
                 return true;
             }
         }
@@ -36,7 +36,7 @@ final class Player
     public function playableTile(LineOfPlay $lineOfPlay) : ?Tile
     {
         foreach ($this->tiles as $tile) {
-            if ($tile->canConnectWith($lineOfPlay->topEnd()) || $tile->canConnectWith($lineOfPlay->bottomEnd())) {
+            if ($tile->canConnectToEnd($lineOfPlay->topEnd()) || $tile->canConnectToEnd($lineOfPlay->bottomEnd())) {
                 return $tile;
             }
         }
@@ -44,9 +44,15 @@ final class Player
         return null;
     }
 
-    public function playTile(Tile $tile, LineOfPlay $lineOfPlay) : void
+    public function playTile(Tile $tileToPlay, LineOfPlay $lineOfPlay) : void
     {
-        $lineOfPlay->connect($tile);
+        $lineOfPlay->connect($tileToPlay);
+
+        foreach ($this->tiles as $i => $tile) {
+            if ($tileToPlay->equals($tile)) {
+                unset($this->tiles[$i]);
+            }
+        }
     }
 
     /**

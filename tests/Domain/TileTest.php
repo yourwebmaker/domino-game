@@ -47,6 +47,17 @@ final class TileTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function equals() : void
+    {
+        self::assertTrue(Tile::fromString('1:2')->equals(Tile::fromString('1:2')));
+        self::assertTrue(Tile::fromString('1:2')->equals(Tile::fromString('2:1')));
+        self::assertTrue(Tile::fromString('2:1')->equals(Tile::fromString('2:1')));
+        self::assertTrue(Tile::fromString('2:1')->equals(Tile::fromString('1:2')));
+    }
+
+    /**
      * @return array<array<int>>
      */
     public function connectProvider() : array

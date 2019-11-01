@@ -13,8 +13,13 @@ final class FixedStock implements Stock
     /** @var Tile[] */
     private $tiles;
 
-    public function __construct()
+    public function __construct(array $tiles = [])
     {
+        if ($tiles) {
+            $this->tiles = $tiles;
+            return;
+        }
+
         for ($i = 0; $i <= 6; $i++) {
             for ($j = 0; $j <= $i; $j++) {
                 $this->tiles[] = new Tile($i, $j);
@@ -50,5 +55,10 @@ final class FixedStock implements Stock
         }
 
         return array_shift($this->tiles);
+    }
+
+    public function __toString() : string
+    {
+        return implode(' ', $this->tiles);
     }
 }

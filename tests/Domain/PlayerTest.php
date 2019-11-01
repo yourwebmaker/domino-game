@@ -34,4 +34,17 @@ class PlayerTest extends TestCase
     {
         self::assertCount(21, $this->stock->tiles());
     }
+
+    /**
+     * @test
+     */
+    public function playTileReduceSizeOfPlayersStock() : void
+    {
+        $currentCount = count($this->player->tiles());
+        $this->player->playTile(Tile::fromString('0:1'), new LineOfPlay(Tile::fromString('0:0')));
+
+        self::assertLessThan($currentCount, count($this->player->tiles()));
+    }
+
+
 }

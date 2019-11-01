@@ -23,8 +23,8 @@ final class LineOfPlay
 
     public function connect(Tile $tile) : void
     {
-        if ($tile->canConnectWith($this->topEnd())) {
-            if ($tile->bottomEnd() !== $this->topEnd()->topEnd()) {
+        if ($tile->canConnectToEnd($this->topEnd())) {
+            if ($tile->bottomEnd() !== $this->topEnd()) {
                 $tile->flip();
             }
 
@@ -33,8 +33,8 @@ final class LineOfPlay
             return;
         }
 
-        if ($tile->canConnectWith($this->bottomEnd())) {
-            if ($tile->topEnd() !== $this->bottomEnd()->bottomEnd()) {
+        if ($tile->canConnectToEnd($this->bottomEnd())) {
+            if ($tile->topEnd() !== $this->bottomEnd()) {
                 $tile->flip();
             }
             $this->tiles[] = $tile;
@@ -49,14 +49,14 @@ final class LineOfPlay
         );
     }
 
-    public function topEnd() : Tile
+    public function topEnd() : int
     {
-        return array_values($this->tiles)[0];
+        return array_values($this->tiles)[0]->topEnd();
     }
 
-    public function bottomEnd() : Tile
+    public function bottomEnd() : int
     {
-        return end($this->tiles);
+        return end($this->tiles)->bottomEnd();
     }
 
     public function count() : int
@@ -71,12 +71,14 @@ final class LineOfPlay
 
     public function getEndToConnect(Tile $tile) : Tile
     {
-        if ($tile->canConnectWith($this->topEnd())) {
-            return $this->topEnd();
+        if ($tile->canConnectToEnd($this->bottomEnd())) {
+            return array_values($this->tiles)[0];
         }
 
-        if ($tile->canConnectWith($this->bottomEnd())) {
-            return $this->bottomEnd();
+        if ($tile->canConnectToEnd($this->topEnd())) {
+            return end($this->tiles);
         }
+
+        //todo thown exception or nullable
     }
 }
