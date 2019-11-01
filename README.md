@@ -10,12 +10,10 @@ Coding assessment for eCurring
 <img src="docs/class-diagram.png"  alt="Class diagram"/>
 
 #### todo
-- Check bug on duplications
 - Create tests with just a few tiles on Stock
 - Replace echoes with Domain events
 - Create App layer
 - Remove duplication on Stock classes
-- Fix bug on adding tiles to line when there's only 1 tile.
 - Update class diagram With PHPStorm
     - Explain concepts used on solution
     - Model, View Model, Events, Low Coupling
