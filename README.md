@@ -9,9 +9,9 @@ Coding assessment for eCurring
 ### Solution 
 - Stock is an interface, so whenever I need to simulate and test a game play I can do it via implementing the stock Interface 
 with a fixed list of Tiles
-- Recursion + Circular Linked List was use to alternate between players. It'possible to add more players.
+- Recursion + Circular Linked List was used to alternate between players. It'possible to add more players.
 - Usage of Domain events was made in order to reduce the coupling between Domain logic and Console output. You can see it 
-on the `main.php` file
+on the `main.php` file.
 
 ### Class diagram
 ##### Initial Idea
