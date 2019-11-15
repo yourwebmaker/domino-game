@@ -7,6 +7,9 @@ namespace eCurring\DominoGame\Domain;
 use function explode;
 use function sprintf;
 
+/**
+ * Value object that represents a tile, avoiding the usage of literals in order to check if a tile can connect with other.
+ */
 final class Tile
 {
     /** @var int */

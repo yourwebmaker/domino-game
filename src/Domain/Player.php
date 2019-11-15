@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace eCurring\DominoGame\Domain;
 
+/**
+ * Represents a player and its actions.
+ */
 final class Player
 {
     /** @var string */

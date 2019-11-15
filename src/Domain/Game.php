@@ -11,6 +11,9 @@ use eCurring\DominoGame\Domain\Events\PlayerWasNotAbleToPlay;
 use eCurring\DominoGame\Domain\Events\PlayerWon;
 use function count;
 
+/**
+ * Aggregate class responsible to manage the game, start and play alternating between the N players in the game.
+ */
 final class Game
 {
     /** @var LineOfPlay */

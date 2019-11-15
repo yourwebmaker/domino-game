@@ -11,6 +11,11 @@ use function count;
 use function end;
 use function implode;
 
+/**
+ * Collection-like class that responsible to manage the line of play.
+ * By introducing this class we can reduce the complexity on the Game regarding the validation of the game play
+ * E.g. Checking whether a player can play or
+ */
 final class LineOfPlay
 {
     /** @var Tile[] */

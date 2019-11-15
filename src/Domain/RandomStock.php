@@ -7,6 +7,9 @@ namespace eCurring\DominoGame\Domain;
 use function array_pop;
 use function shuffle;
 
+/**
+ * Represents the random stock described on the exercise.
+ */
 final class RandomStock implements Stock
 {
     /** @var Tile[] */

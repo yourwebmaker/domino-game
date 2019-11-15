@@ -8,6 +8,8 @@ use function array_keys;
 use function count;
 
 /**
+ * Circular list used to choose th next player.
+ *
  * @see https://github.com/alesinicio/circularArray
  */
 final class PlayerList
